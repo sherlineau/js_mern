@@ -22,7 +22,7 @@
     </p>
     <p onmouseover="mouseOverFunction(this)">
         Another task: This should be another feature. 
-        I want to click anywhere in this paragraph tag and I want to be able to change the background color to whatever is in this input: <input type="text"/>.
+        I want to click anywhere in this paragraph tag and I want to be able to change the background color to whatever is in this input: <input type="text" id="mouseinput"/>.
     </p>
     <script>
         document.getElementById("button").onclick = () => {
@@ -40,7 +40,11 @@
         const getValueFromId = id => document.getElementById(id).value;
         const setBackgroundColorById = (id,color) => document.getElementById(id).style = "background-color: " + color;
         // does not change back to white background on end mouse over
-        const mouseOverFunction = el => el.style = 'background-color: black; color: white';
+        const mouseOverFunction = el => { 
+            let color = getValueFromId("mouseinput");
+            el.style = "background-color:" + color; 
+        }
+
     </script>
 </body>
 </html>
