@@ -18,6 +18,18 @@ parentFunction(makingPurchase, "Christian", 1000)
 parentFunction(returningItem, "Max", 40)
 
 
+// similar to nested functions
+const parentCurrying = (callback) =>
+{
+    console.log("Welcome to the currying store")
+    return (person,price) => {
+        callback(person,price)
+    }
+}
+
+parentCurrying(makingPurchase)("Heidi",10)
+
+
 // Object.freeze() 
 //can not adjust a frozen object
 const shoppingList = Object.freeze([
@@ -66,9 +78,60 @@ console.log(cheapItems)
 // 1. loop through each element inside of array
 // 2. returns element if condition is true: [element's price<100]
 
-// TODO given a deleteID, return a list of items without the item of that matching id
+// given a deleteID, return a list of items without the item of that matching id
+const deleteId = 2
+const deletedList = shoppingList.filter((item)=>item.id!==deleteId)
+console.log(deletedList)
 
-// TODO given an array index, return a list of items without the item of that index
+//  given an array index, return a list of items without the item of that index
+const deletePos = 0
+const deletePosList = shoppingList.filter((item, i) => i !== deletePos)
+console.log(deletePosList)
 
 // TODO filter the itmes that can be bought in Trader Joes
 // HINT: .includes(keyword) returns boolean
+const traderJoesItems = shoppingList.filter((item) => item.shops.includes('Trader Joes'))
+console.log(traderJoesItems)
+
+// concat, spread
+// concat adds arrays together
+// different methods to add to an array instead of push
+const addTV = shoppingList.concat([{itemName:"TV", price: 1299, shop:['BestBuy']}])
+console.log(addTV)
+
+const addGame = [...shoppingList, {itemName:"gow", price: 49.99, shop:['BestBuy', 'Target']} ]
+console.log(addGame)
+
+// get first two 2 items
+const firstTwoItems = [...shoppingList.slice(0,2)]
+console.log(firstTwoItems)
+
+// can i use slick to exclude position 3?
+const removePos3 = [...shoppingList.slice(0,3), ...shoppingList.slice(4,5)]
+console.log(removePos3)
+
+// splice vs slice
+// splice DELETES from array
+// slice only returns a copy of the section you "sliced"
+const array = [1,2,3,4,5]
+console.log(array.splice(1,2))
+console.log(array)
+
+const arr2 = [1,2,3,4,5]
+console.log(arr2.slice(1,2))
+console.log(arr2)
+
+
+// -------sorting----------
+console.log(cheapItems)
+const sortedItemNames = cheapItems.sort()
+console.log(sortedItemNames)
+
+console.log(prices)
+const sortedPrices = prices.sort((a,b) => a-b)
+console.log(sortedPrices)
+
+//make shoppinglist into an array and sort that by the itemName
+const sortByName = [...shoppingList].sort((a,b)=> a.itemName > b.itemName ? 1: -1)
+console.log(sortByName)
+
