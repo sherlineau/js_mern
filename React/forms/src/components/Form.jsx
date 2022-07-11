@@ -16,17 +16,12 @@ const Form = (props) => {
         setHasBeenSubmitted( true );
     };
 
-    const formMessage = () => {
-        if (hasBeenSubmitted) {
-            return "Thank you for submitting the form!";
-        } else {
-            return "Welcome, please submit the form";
-        }
-    };
+
 
     return (
         <>
         <form onSubmit={ createUser }>
+            {/* form message displayed based on if form has been submitted */}
             { hasBeenSubmitted ? 
                 <h3>Thank you for submitting the form!</h3> :
                 <h3>Welcome, please submit the form.</h3>
@@ -35,6 +30,7 @@ const Form = (props) => {
                 <label>First Name: </label>
                 <input type="text" name="firstName" onChange={ e=> setFirstName(e.target.value)} value={firstName}/>
                 {
+                    // validation checks length greater than one allows the message to be hidden until something is typed
                     firstName.length > 0 && firstName.length < 2 ? <span style={{color:"red"}}>First name must be at least 2 characters</span>:""
                 }
             </div>
@@ -63,6 +59,7 @@ const Form = (props) => {
                 <label>Confirm Password: </label>
                 <input type="text" name="confirmPass"  onChange={ e=> setConfirmPass(e.target.value)} value={confirmPass}/>
                 {
+                    
                     confirmPass.length > 0 && confirmPass !== password ? <span style={{color:"red"}}>Passwords must match</span>:""
                 }
             </div>
