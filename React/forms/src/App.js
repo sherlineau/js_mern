@@ -1,13 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import From1 from './components/From1';
-import Form2 from './components/Form2';
+import Form from './components/Form';
 
 function App() {
   return (
     <div className="App">
-      <Form2/>
-      <From1/>
+      <Form/>
     </div>
   );
 }
