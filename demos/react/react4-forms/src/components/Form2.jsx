@@ -29,8 +29,8 @@ const Form2 = () => {
     return (
         <fieldset>
             <legend>Form2.jsx</legend>
-
             <form onSubmit={handleSubmit}>
+            <h3> { formMessage() } </h3>
                 <p>
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username" onChange={(e) => setUsername(e.target.value)} value={username} />
