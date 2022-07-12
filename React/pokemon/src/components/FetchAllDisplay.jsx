@@ -1,15 +1,15 @@
 import React from 'react'
 
-const FetchDisplay = (props) => {
+const FetchAllDisplay = (props) => {
 
     return (
         <div>
-            <ul>
+            <ul className='list-group justify-content-center'>
             {/* iterates through the pokemonList array and returns a li for each pokemon */}
             {
                 props.pokemonList.map((eachPokemon, i) => {
                     return (
-                        <li key={i}>{eachPokemon.name}</li>
+                        <li className="list-group-item" key={i}>{eachPokemon.name}</li>
                         )
                     })
                 }
@@ -18,4 +18,4 @@ const FetchDisplay = (props) => {
     )
 }
 
-export default FetchDisplay
+export default FetchAllDisplay
