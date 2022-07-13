@@ -16,7 +16,8 @@ const BoxForm = (props) => {
     };
 
     return (
-        <div className="form-group" style={{width:"500px"}}>
+        <div className="form-group mx-auto" style={{width:"500px"}}>
+            <h2>BoxForm.jsx</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label className="form-label">Color </label>

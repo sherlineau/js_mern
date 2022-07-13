@@ -11,11 +11,11 @@ const BoxContainer = () => {
     }
 
     return (
-        <fieldset className='container'>
-            <legend>BoxContainer.jsx</legend>
+        <div className='container mx-auto'>
+            <h1>BoxContainer.jsx</h1>
             <BoxForm onNewBox = {receiveNewBoxes}/>
             <BoxDisplay boxes = {boxes}/>
-        </fieldset>
+        </div>
     )
 }
 
