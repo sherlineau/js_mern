@@ -1,0 +1,42 @@
+//create & switch to the db
+use firstDB
+
+// returns an array with the objects matching condition
+// will return an array of objects even if it is only one object 
+db.item.find({name:"toy"})
+
+//returns the first item it finds [returns an OBJECT not array]
+db.item.findOne({name:"toy"}) : only returns the first item
+
+//insert new document into collection
+db.students.insert({name: "Jolin Au", home_state: "CA", lucky_number: 7, birthday: {month: 6, day: 25, year: 2007}})
+
+//find all students
+db.students.find({})
+
+//find all students with homestate CA
+db.students.find({home_state: "CA"})
+
+//find all students with lucky number greater than 3
+db.students.find({lucky_number: {$gt: 3}})
+
+//add new interests field with an array to ALL the students
+db.students.updateMany({}, {$set: {"interests": ["coding","brunch","MongDB"]}})
+
+//add unique interests to specific students
+db.students.update( { name: "sherline"} , {$push: {interests: 'reading'}})
+
+db.students.update( { name: "Alex Miller"} , {$push: {interests: 'taxes'}})
+
+db.students.update( { name: "Alex Miller"} , {$pull: {interests: 'taxes'}})
+
+db.students.deleteMany ({home_state: "CA"})
+
+db.students.deleteOne ({ name: "Linda Nguyen"} )
+
+db.students.deleteOne({lucky_number: {$gt: 5}})
+
+db.students.updateMany({}, {$set: {"number_of_belts": 0]}})
+
+db.students.updateMany({}, {$set: {"number_of_belts": 1]}})
+
