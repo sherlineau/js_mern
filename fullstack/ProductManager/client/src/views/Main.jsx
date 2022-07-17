@@ -14,14 +14,18 @@ const Main = () => {
                 setProduct(res.data)
                 setLoaded(true)
             })
-            .catch(err=>console.error(err))
+            .catch(err => console.error(err))
     }, [])
+
+    const removeFromDom = productId => {
+        setProduct(product.filter(product=> product._id !== productId))
+    }
 
     return (
         <div>
-            <ProductForm/>
-            <hr/>
-            {loaded && <ProductList product = {product}/>}
+            <ProductForm />
+            <hr />
+            {loaded && <ProductList product={product} removeFromDom={removeFromDom} />}
         </div>
     )
 }

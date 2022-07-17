@@ -16,9 +16,7 @@ const ProductForm = () => {
         })
             .then(res => console.log(res))
             .catch(err => console.log(err))
-        setTitle("")
-        setPrice()
-        setDescription("")
+        
     }
     return (
         <form onSubmit={submitHandler} className="mx-auto my-3" style={{ width: "500px" }}>

@@ -1,16 +1,27 @@
 import React from 'react'
 import axios from 'axios'
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import DeleteButton from './DeleteButton'
 
 const ProductList = (props) => {
+    const { removeFromDom } = props
+
     return (
-        <ul className='list-group mx-auto' style={{width: "500px"}}>
-            {props.product.map((product, i) =>
-                <Link to={product._id} key={i}>
-                    <li className='list-group-item list-group-item-action'>{product.title}</li>
-                </Link>
-            )}
-        </ul>
+        <div className='mx-auto' style={{ width: "500px" }}>
+
+            <table className='table'>
+                {props.product.map((product, i) =>
+                    <tr key={i}>
+                        <td>
+                            <Link to={'/products/'+ product._id}> {product.title} </Link>
+                        </td>
+                        <td>
+                            <DeleteButton productId={product._id} removeFromDom={() => removeFromDom(product._id)}/>
+                        </td>
+                    </tr>
+                )}
+            </table>
+        </div>
     )
 }
 
