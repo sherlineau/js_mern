@@ -18,7 +18,9 @@ const CreateFormRedirect = () => {
         // post the new song to the backend
         axios.post(`http://localhost:8000/api/songs`, { title, artist, rating })
             .then(res => navigate("/dashboard"))
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err.response);
+            })
     }
 
     return (

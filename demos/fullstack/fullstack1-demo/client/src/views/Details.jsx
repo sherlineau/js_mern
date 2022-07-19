@@ -42,5 +42,4 @@ const Details = () => {
         </fieldset>
     )
 }
-
 export default Details
