@@ -1,7 +1,10 @@
-// TODO: import controller
-const TestController = require('../controllers/authors.controllers')
+const AuthorController = require('../controllers/authors.controllers')
 
-// route to test backend connection
 module.exports = function (app) {
-    app.get('/api', TestController.index)
+    app.get('/api', AuthorController.index)
+    app.get('/api/authors', AuthorController.getAllAuthors)
+    app.get('/api/authors/:id', AuthorController.getOneAuthor)
+    app.post('/api/authors', AuthorController.newAuthor)
+    app.put('/api/authors/:id', AuthorController.updateAuthor)
+    app.delete('/api/authors/:id', AuthorController.deleteAuthor)
 }
