@@ -6,7 +6,6 @@ module.exports.index = (req, res) => {
     })
 }
 
-// TODO create CRUD controllers
 // get all
 module.exports.getAllProducts = (req, res) => {
     Product.find()

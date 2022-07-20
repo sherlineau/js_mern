@@ -12,7 +12,6 @@ const Details = () => {
   useEffect(() => {
     axios.get(`http://localhost:8000/api/products/${id}`)
       .then(res => setProduct(res.data))
-      .catch(err => console.log(err))
   })
 
   return (
@@ -24,9 +23,9 @@ const Details = () => {
             <h1>Product Name: {product.name}</h1>
             <p>Price: {product.price}</p>
             <p>Description: {product.description}</p>
-            <DeleteButton productId={product._id} successCallback={()=> navigate('/')}/>
-          </div> 
-          : 
+            <DeleteButton productId={product._id} onDelete={() => navigate('/')} />
+          </div>
+          :
           <h1>Product not available</h1>
       }
     </div>

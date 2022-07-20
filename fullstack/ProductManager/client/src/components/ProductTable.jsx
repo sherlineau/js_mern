@@ -24,7 +24,7 @@ const ProductTable = (props) => {
               <tr key={i}>
                 <td><Link to={`/products/${product._id}`}><span style={{fontSize: "20px"}}>{product.name}</span></Link></td>
                 <td style={{width:"50px"}}><Link to={`/products/${product._id}/edit`} className='btn btn-primary'>Edit</Link></td>
-                <td style={{width:"50px"}}><DeleteButton productId={product._id} successCallback={()=>removeFromList(product._id)}/></td>
+                <td style={{width:"50px"}}><DeleteButton productId={product._id} onDelete={()=>removeFromList(product._id)}/></td>
               </tr>
             )
           })
