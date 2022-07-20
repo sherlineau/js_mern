@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 const ProductForm = (props) => {
-  // initial values for update/edit
+  // initial values recieved from parent
+  // for create in Main.jsx -> { "" , 0, ""}
+  // for update -> grabs product from database by param -> gets name, price, description -> prepoluates form with those values
   const { initialName, initialPrice, initialDescription, onSubmitProp } = props
   const [name, setName] = useState(initialName)
   const [price, setPrice] = useState(initialPrice)
   const [description, setDescription] = useState(initialDescription)
 
+  // handles submit logic -> grabs values from the form and sends it to the parent as an object -> parent has logic to post/put to database
+  // onSubmitProp is my callback function
   const handleSubmit = e => {
     e.preventDefault()
     onSubmitProp({name,price,description})

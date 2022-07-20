@@ -10,6 +10,7 @@ const Update = (props) => {
     const [loaded, setLoaded] = useState(false)
 
     // display on load -> use effect to get one [params -> id from props]
+    // this is our "props" that will be sent to product form
     useEffect(()=>{
         axios.get(`http://localhost:8000/api/products/${id}`)
             .then(res=> {
@@ -19,7 +20,7 @@ const Update = (props) => {
             })
     },[])
 
-    // update product
+    // update product -> product "param" is recieved from ProductForm as an object
     const updateProduct = product => {
         axios.put(`http://localhost:8000/api/products/${id}`, product)
         .then(res=>navigate('/'))

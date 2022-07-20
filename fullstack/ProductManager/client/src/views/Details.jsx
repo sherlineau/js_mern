@@ -7,12 +7,14 @@ const Details = () => {
   const { id } = useParams()
   const navigate = useNavigate()
 
+  // gets the product from database using params 
   useEffect(() => {
     axios.get(`http://localhost:8000/api/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(err => console.log(err))
   })
 
+  //function for delete button -> onclick redirect[navigate] to home
   const handleDelete = () => {
     axios.delete(`http://localhost:8000/api/products/${id}`)
       .then(res => navigate('/'))
@@ -22,6 +24,7 @@ const Details = () => {
   return (
     <div>
       {
+        // ternary opeartor checks if product exists 
         product ?
           <div>
             <h1>Product Name: {product.name}</h1>

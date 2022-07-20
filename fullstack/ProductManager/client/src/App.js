@@ -7,10 +7,11 @@ import Update from "./views/Update";
 function App() {
   return (
     <div className="App">
+      {/* appears on every page */}
       <h1>Product Manager</h1>
       <Link to="/">Home</Link>
 
-      {/* TODO hookup front-end routes to backend */}
+      {/* routes to different views */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/products/:id" element={<Details />} />
