@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
+import DeleteButton from '../components/DeleteButton'
 
 const Details = () => {
   const [product, setProduct] = useState()
@@ -14,13 +15,6 @@ const Details = () => {
       .catch(err => console.log(err))
   })
 
-  //function for delete button -> onclick redirect[navigate] to home
-  const handleDelete = () => {
-    axios.delete(`http://localhost:8000/api/products/${id}`)
-      .then(res => navigate('/'))
-      .catch(err => console.log(err))
-  }
-
   return (
     <div>
       {
@@ -30,7 +24,7 @@ const Details = () => {
             <h1>Product Name: {product.name}</h1>
             <p>Price: {product.price}</p>
             <p>Description: {product.description}</p>
-            <button onClick={handleDelete}>Delete</button>
+            <DeleteButton productId={product._id} successCallback={()=> navigate('/')}/>
           </div> 
           : 
           <h1>Product not available</h1>

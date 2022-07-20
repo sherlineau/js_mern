@@ -15,6 +15,9 @@ const ProductForm = (props) => {
   const handleSubmit = e => {
     e.preventDefault()
     onSubmitProp({name,price,description})
+    setName("")
+    setPrice(0)
+    setDescription("")
   }
 
   return (
