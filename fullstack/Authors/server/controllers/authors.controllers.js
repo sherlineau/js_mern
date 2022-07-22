@@ -1,12 +1,5 @@
 const Author = require("../models/author.model")
 
-// test api connections
-module.exports.index = (req, res) => {
-    res.json({
-        message: "Hello World",
-    })
-}
-
 // get all authors
 module.exports.getAllAuthors = (req, res) => {
     Author.find()
